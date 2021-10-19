@@ -11,7 +11,7 @@ def generatePDF(title, body):
     pdf.set_font("Arial", size=12)
     pdf.cell(200, 10, txt=title, ln=1, align='C')
     pdf.multi_cell(185, 5, body, 0, 'J', 0, False)
-    pdf.output("receita.pdf").encode('utf-8', 'ignore')
+    pdf.output(f"{title}.pdf").encode('utf-8', 'ignore')
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
     title = bs.find("h1").find(text=True)
     recipe = bs.find("div", {"class": "wg-text container"}).find_all('p')
     article_text = ''
-    for line in recipe[:-2]:
+    for line in recipe:
         article_text += '\n' + ''.join(line.findAll(text=True))
 
     generatePDF(title, article_text)
