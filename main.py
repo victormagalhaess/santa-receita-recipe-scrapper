@@ -52,7 +52,7 @@ def main():
         generatePDF(title, article_text)
         log(f'Recipe "{title}" generated with success', 'success')
     except:
-        log('A error occurred while getting the recipe', 'error')
+        log('An error occurred while getting the recipe', 'error')
 
 
 if __name__ == '__main__':
