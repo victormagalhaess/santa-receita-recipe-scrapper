@@ -3,7 +3,7 @@ from scrapper import getRecipe
 app = Flask(__name__)
 
 
-@app.route("/recipe")
+@app.route("/")
 def scrappRecipe():
     path = './result.pdf'
     recipeUrl = request.args.get('url')
