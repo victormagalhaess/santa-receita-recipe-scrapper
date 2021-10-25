@@ -24,7 +24,7 @@ def generatePDF(title, body):
     pdf.set_font('Arial', size=12)
     pdf.cell(200, 10, txt=title, ln=1, align='C')
     pdf.multi_cell(185, 5, body, 0, 'J', 0, False)
-    pdf.output(f'{title}.pdf').encode('utf-8', 'ignore')
+    pdf.output('result.pdf').encode('utf-8', 'ignore')
 
 
 def scrapRecipe(recipe_url):
@@ -42,8 +42,7 @@ def getArticleText(recipe):
     return article_text
 
 
-def main():
-    recipe_url = str(input('link da receita: '))
+def getRecipe(recipe_url):
     try:
         full_recipe = scrapRecipe(recipe_url)
         recipe = full_recipe['recipe']
@@ -53,7 +52,3 @@ def main():
         log(f'Recipe "{title}" generated with success', 'success')
     except:
         log('An error occurred while getting the recipe', 'error')
-
-
-if __name__ == '__main__':
-    main()
