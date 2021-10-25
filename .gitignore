@@ -129,4 +129,7 @@ dmypy.json
 .pyre/
 
 # Compiled(?) fonts
-*.pkl
+*.pkl2
+
+# Result files
+*.pdf
